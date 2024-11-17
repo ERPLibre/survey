@@ -1,0 +1,174 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* survey_condition_validation_option
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-17 18:00+0000\n"
+"PO-Revision-Date: 2024-11-17 18:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: survey_condition_validation_option
+#: model_terms:ir.ui.view,arch_db:survey_condition_validation_option.survey_question_form
+msgid "'Date maximum' option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model_terms:ir.ui.view,arch_db:survey_condition_validation_option.survey_question_form
+msgid "'Date minimum' option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model_terms:ir.ui.view,arch_db:survey_condition_validation_option.survey_question_form
+msgid "'Datetime maximum' option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model_terms:ir.ui.view,arch_db:survey_condition_validation_option.survey_question_form
+msgid "'Datetime minimum' option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,field_description:survey_condition_validation_option.field_survey_question__validation_max_multiple_choice_option
+msgid "Maximum Number of Answers"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,field_description:survey_condition_validation_option.field_survey_question__validation_max_date_option
+msgid "Maximum date option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,field_description:survey_condition_validation_option.field_survey_question__validation_max_datetime_option
+msgid "Maximum datetime option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,field_description:survey_condition_validation_option.field_survey_question__validation_min_multiple_choice_option
+msgid "Minimum Number of Answers"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,field_description:survey_condition_validation_option.field_survey_question__validation_min_date_option
+msgid "Minimum date option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,field_description:survey_condition_validation_option.field_survey_question__validation_min_datetime_option
+msgid "Minimum datetime option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model_terms:ir.ui.view,arch_db:survey_condition_validation_option.survey_question_form
+msgid "Multiple choice max"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model_terms:ir.ui.view,arch_db:survey_condition_validation_option.survey_question_form
+msgid "Multiple choice min"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model,name:survey_condition_validation_option.model_survey_question
+msgid "Survey Question"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#. odoo-python
+#: code:addons/addons.odoo16.0/OCA_survey/survey_condition_validation_option/models/survey_question.py:0
+#: code:addons/survey_condition_validation_option/models/survey_question.py:0
+#, python-format
+msgid "The date needs to be after %(date_min_show)s."
+msgstr ""
+
+#. module: survey_condition_validation_option
+#. odoo-python
+#: code:addons/addons.odoo16.0/OCA_survey/survey_condition_validation_option/models/survey_question.py:0
+#: code:addons/survey_condition_validation_option/models/survey_question.py:0
+#, python-format
+msgid "The date needs to be before %(date_max_show)s."
+msgstr ""
+
+#. module: survey_condition_validation_option
+#. odoo-python
+#: code:addons/addons.odoo16.0/OCA_survey/survey_condition_validation_option/models/survey_question.py:0
+#: code:addons/survey_condition_validation_option/models/survey_question.py:0
+#, python-format
+msgid "The date needs to be between %(date_min_show)s and %(date_max_show)s."
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,help:survey_condition_validation_option.field_survey_question__validation_min_date_option
+msgid "The option is affected by validation_max_date_option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,help:survey_condition_validation_option.field_survey_question__validation_min_datetime_option
+msgid "The option is affected by validation_max_datetime_option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,help:survey_condition_validation_option.field_survey_question__validation_min_multiple_choice_option
+msgid ""
+"The option is affected by validation_max_multiple_choice_option, limit the "
+"selection value to be choose. -1 disable this option."
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,help:survey_condition_validation_option.field_survey_question__validation_max_date_option
+msgid "The option is affected by validation_min_date_option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,help:survey_condition_validation_option.field_survey_question__validation_max_datetime_option
+msgid "The option is affected by validation_min_datetime_option"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields,help:survey_condition_validation_option.field_survey_question__validation_max_multiple_choice_option
+msgid ""
+"The option is affected by validation_min_multiple_choice_option, limit the "
+"selection value to be choose. -1 disable this option."
+msgstr ""
+
+#. module: survey_condition_validation_option
+#. odoo-python
+#: code:addons/addons.odoo16.0/OCA_survey/survey_condition_validation_option/models/survey_question.py:0
+#: code:addons/survey_condition_validation_option/models/survey_question.py:0
+#, python-format
+msgid "This is not a date"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#: model:ir.model.fields.selection,name:survey_condition_validation_option.selection__survey_question__validation_max_date_option__today
+#: model:ir.model.fields.selection,name:survey_condition_validation_option.selection__survey_question__validation_max_datetime_option__today
+#: model:ir.model.fields.selection,name:survey_condition_validation_option.selection__survey_question__validation_min_date_option__today
+#: model:ir.model.fields.selection,name:survey_condition_validation_option.selection__survey_question__validation_min_datetime_option__today
+msgid "Today"
+msgstr ""
+
+#. module: survey_condition_validation_option
+#. odoo-python
+#: code:addons/addons.odoo16.0/OCA_survey/survey_condition_validation_option/models/survey_question.py:0
+#: code:addons/survey_condition_validation_option/models/survey_question.py:0
+#, python-format
+msgid ""
+"You need to select %(min_value)s answer, you chose %(len_answer)s answer."
+msgstr ""
+
+#. module: survey_condition_validation_option
+#. odoo-python
+#: code:addons/addons.odoo16.0/OCA_survey/survey_condition_validation_option/models/survey_question.py:0
+#: code:addons/survey_condition_validation_option/models/survey_question.py:0
+#, python-format
+msgid ""
+"You need to select between %(min_value)s and %(max_value)s answers, you "
+"chose %(len_answer)s answer."
+msgstr ""

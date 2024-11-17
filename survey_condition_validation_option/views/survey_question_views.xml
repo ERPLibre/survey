@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- QUESTIONS -->
+    <record model="ir.ui.view" id="survey_question_form">
+        <field name="name">Form view for survey question</field>
+        <field name="inherit_id" ref="survey.survey_question_form" />
+        <field name="model">survey.question</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='validation_required']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': [('question_type', 'not in',
+                    ['char_box', 'numerical_box', 'date', 'datetime', 'multiple_choice'])]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='validation_min_datetime']" position="after">
+                <field
+                    name="validation_min_datetime_option"
+                    string="'Datetime minimum' option"
+                    attrs="{'invisible': ['|', ('question_type', '!=', 'datetime'), ('validation_required', '=', False)]}"
+                />
+            </xpath>
+            <xpath expr="//field[@name='validation_min_date']" position="after">
+                <field
+                    name="validation_min_date_option"
+                    string="'Date minimum' option"
+                    attrs="{'invisible': ['|', ('question_type', '!=', 'date'), ('validation_required', '=', False)]}"
+                />
+            </xpath>
+            <xpath
+                expr="//field[@name='validation_min_datetime']"
+                position="attributes"
+            >
+                <attribute name="attrs">
+                    {'invisible': ['|', '|', ('question_type', '!=', 'datetime'), ('validation_required', '=', False), ('validation_min_datetime_option', '!=', False)]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='validation_min_date']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': ['|', '|', ('question_type', '!=', 'date'), ('validation_required', '=', False), ('validation_min_date_option', '!=', False)]}
+                </attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='validation_max_datetime']"
+                position="attributes"
+            >
+                <attribute name="attrs">
+                    {'invisible': ['|', '|', ('question_type', '!=', 'datetime'), ('validation_required', '=', False), ('validation_max_datetime_option', '!=', False)]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='validation_max_date']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': ['|', '|', ('question_type', '!=', 'date'), ('validation_required', '=', False), ('validation_max_date_option', '!=', False)]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='validation_max_datetime']" position="after">
+                <field
+                    name="validation_max_datetime_option"
+                    string="'Datetime maximum' option"
+                    attrs="{'invisible': ['|', ('question_type', '!=', 'datetime'), ('validation_required', '=', False)]}"
+                />
+                <field
+                    name="validation_max_date_option"
+                    string="'Date maximum' option"
+                    attrs="{'invisible': ['|', ('question_type', '!=', 'date'), ('validation_required', '=', False)]}"
+                />
+                <field
+                    name="validation_min_multiple_choice_option"
+                    string="Multiple choice min"
+                    attrs="{'invisible': ['|', ('question_type', '!=', 'multiple_choice'), ('validation_required', '=', False)]}"
+                />
+                <field
+                    name="validation_max_multiple_choice_option"
+                    string="Multiple choice max"
+                    attrs="{'invisible': ['|', ('question_type', '!=', 'multiple_choice'), ('validation_required', '=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

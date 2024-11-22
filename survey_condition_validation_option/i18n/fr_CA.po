@@ -28,12 +28,12 @@ msgstr ""
 #. module: survey_condition_validation_option
 #: model_terms:ir.ui.view,arch_db:survey_condition_validation_option.survey_question_form
 msgid "'Datetime maximum' option"
-msgstr "Datetime maximum"
+msgstr ""
 
 #. module: survey_condition_validation_option
 #: model_terms:ir.ui.view,arch_db:survey_condition_validation_option.survey_question_form
 msgid "'Datetime minimum' option"
-msgstr "Datetime minimum"
+msgstr ""
 
 #. module: survey_condition_validation_option
 #: model:ir.model.fields,field_description:survey_condition_validation_option.field_survey_question__validation_max_multiple_choice_option

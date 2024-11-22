@@ -138,12 +138,13 @@ class SurveyQuestion(models.Model):
         heure_actuelle = datetime.now(user_timezone)
         decalage_horaire = heure_actuelle.utcoffset().total_seconds() / 3600
         diff_hour = int(decalage_horaire)
+        # today
+        today = fields.Date.to_date(heure_actuelle)
 
         # Check if answer is in the right range
         if is_datetime:
             if self.validation_min_datetime_option:
                 if self.validation_min_datetime_option == "today":
-                    today = fields.Date.today()
                     min_date = fields.datetime(
                         today.year, today.month, today.day
                     ) - relativedelta(hours=diff_hour)
@@ -157,11 +158,11 @@ class SurveyQuestion(models.Model):
                 min_date = fields.Datetime.from_string(self.validation_min_datetime)
             if self.validation_max_datetime_option:
                 if self.validation_max_datetime_option == "today":
-                    today = fields.Date.today() + relativedelta(days=1)
+                    tomorrow = today + relativedelta(days=1)
                     max_date = fields.datetime(
-                        today.year,
-                        today.month,
-                        today.day,
+                        tomorrow.year,
+                        tomorrow.month,
+                        tomorrow.day,
                         -diff_hour,
                     ) - relativedelta(seconds=1)
                 else:
@@ -172,11 +173,10 @@ class SurveyQuestion(models.Model):
                     max_date = False
             else:
                 max_date = fields.Datetime.from_string(self.validation_max_datetime)
-            dateanswer = fields.Datetime.from_string(answer)
         else:
             if self.validation_min_date_option:
                 if self.validation_min_date_option == "today":
-                    min_date = fields.Date.today()
+                    min_date = today
                 else:
                     _logger.error(
                         f"Missing information about validation_min_date_option: "
@@ -187,7 +187,7 @@ class SurveyQuestion(models.Model):
                 min_date = fields.Date.from_string(self.validation_min_date)
             if self.validation_max_date_option:
                 if self.validation_max_date_option == "today":
-                    max_date = fields.Date.today()
+                    max_date = today
                 else:
                     _logger.error(
                         f"Missing information about validation_max_date_option: "
@@ -196,18 +196,21 @@ class SurveyQuestion(models.Model):
                     max_date = False
             else:
                 max_date = fields.Date.from_string(self.validation_max_date)
-            dateanswer = fields.Date.from_string(answer)
         if min_date and max_date and not (min_date <= dateanswer <= max_date):
             date_min_show = (
                 min_date
                 if not is_datetime
                 else min_date.astimezone(user_timezone).strftime("%Y-%m-%d %H:%M:%S")
             )
+            max_tomorrow = max_date + relativedelta(days=1)
             date_max_show = (
-                max_date
+                max_tomorrow
                 if not is_datetime
-                else max_date.astimezone(user_timezone).strftime("%Y-%m-%d %H:%M:%S")
+                else max_tomorrow.astimezone(user_timezone).strftime(
+                    "%Y-%m-%d %H:%M:%S"
+                )
             )
+            date_max_show += relativedelta(days=1)
             msg_error = self.validation_error_msg or _(
                 "The date needs to be between %(date_min_show)s and %(date_max_show)s.",
                 date_min_show=date_min_show,
@@ -224,10 +227,13 @@ class SurveyQuestion(models.Model):
                 date_min_show=date_min_show,
             )
         elif max_date and not dateanswer <= max_date:
+            max_tomorrow = max_date + relativedelta(days=1)
             date_max_show = (
-                max_date
+                max_tomorrow
                 if not is_datetime
-                else max_date.astimezone(user_timezone).strftime("%Y-%m-%d %H:%M:%S")
+                else max_tomorrow.astimezone(user_timezone).strftime(
+                    "%Y-%m-%d %H:%M:%S"
+                )
             )
             msg_error = self.validation_error_msg or _(
                 "The date needs to be before %(date_max_show)s.",
